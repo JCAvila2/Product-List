@@ -9,15 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Organizador">
+
+
         <activity
-            android:name=".MainActivity"
+            android:name=".verElementos"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".verElementos"/>
+
+
         <activity android:name=".agregarElementos"/>
         <activity android:name=".editarElemento"/>
 

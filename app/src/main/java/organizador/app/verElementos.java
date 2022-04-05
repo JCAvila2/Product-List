@@ -27,7 +27,6 @@ public class verElementos extends AppCompatActivity {
 
     // Declaracion de Variables
     BaseDeDatos db;
-    MainActivity registro;
     ListView gridLista;
     TextView mostrarCantidad;
     Button botonAgregar;
@@ -41,12 +40,11 @@ public class verElementos extends AppCompatActivity {
 
         // Inicializacion de variables
         db = new BaseDeDatos(this);
-        registro = new MainActivity();
         gridLista = findViewById(R.id.grid_lista);
         mostrarCantidad = findViewById(R.id.mostrar_cantidad);
         botonAgregar = findViewById(R.id.Boton_agregar);
 
-        getSupportActionBar().setTitle(registro.nombreUsuario);
+        //getSupportActionBar().setTitle(); Revisar nombre de usuario
         mostrarLista();
         numeroDeElementos = gridLista.getAdapter().getCount();
         mostrarCantidad.setText(numeroDeElementos + "");
@@ -118,7 +116,7 @@ public class verElementos extends AppCompatActivity {
             case R.id.menu_salir: // Boton de salir
                 AlertDialog.Builder preguntaSalir = new AlertDialog.Builder(this);
                 preguntaSalir.setTitle("Salir");
-                preguntaSalir.setMessage("¿" + registro.nombreUsuario + " está seguro que desea salir?").setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                preguntaSalir.setMessage("¿Está seguro que desea salir?").setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(Intent.ACTION_MAIN);
                         intent.addCategory(Intent.CATEGORY_HOME);
@@ -136,7 +134,7 @@ public class verElementos extends AppCompatActivity {
             case R.id.menu_eliminar: // Boton para eliminar todos los elementos
                 AlertDialog.Builder preguntaEliminarTodo = new AlertDialog.Builder(this);
                 preguntaEliminarTodo.setTitle("Eliminar Todo");
-                preguntaEliminarTodo.setMessage("¿" + registro.nombreUsuario + " está seguro que desea eliminar permanentemente todos los elementos?").setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                preguntaEliminarTodo.setMessage("¿Está seguro que desea eliminar permanentemente todos los elementos?").setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int i) {
                         db.limpiarElementos();
                         mostrarLista();
@@ -155,7 +153,7 @@ public class verElementos extends AppCompatActivity {
                 Context context;
                 AlertDialog.Builder alertaInfoRegistro = new AlertDialog.Builder(this);
                 alertaInfoRegistro.setTitle("Informacion");
-                alertaInfoRegistro.setMessage("Los datos que ingresaste en el registro son: \nNombre: " + registro.nombreUsuario + "\nEmail: " + registro.emailUsuario);
+                alertaInfoRegistro.setMessage("Los datos que ingresaste en el registro son: \nNombre: " + "null" + "\nEmail: " + "null"); // revisar
                 alertaInfoRegistro.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int i) {
                         dialog.dismiss();
