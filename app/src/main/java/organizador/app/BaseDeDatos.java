@@ -88,16 +88,4 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     }
 
 
-    // metodo para conocer las tablas en la base de datos
-    public Cursor conocerTablas() {
-        Log.i("BASE DE DATOS", "Se actualizaron las tablas en la base de datos.");
-
-        SQLiteDatabase base_de_datos = this.getWritableDatabase();
-        String query = "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'tabla_%' ";
-        Cursor datos = base_de_datos.rawQuery(query, null);
-        return datos;
-    }
-
-
-
 }

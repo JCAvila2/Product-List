@@ -114,13 +114,6 @@ public class verElementos extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_categorias:
-                Intent ir_a_ver_categorias = new Intent(verElementos.this, verCategorias.class);
-                startActivity(ir_a_ver_categorias);
-                break;
-            case R.id.theme:
-                cambiarTema();
-                break;
             case R.id.menu_eliminar: // Boton para eliminar todos los elementos
                 AlertDialog.Builder preguntaEliminarTodo = new AlertDialog.Builder(this);
                 preguntaEliminarTodo.setTitle("Eliminar Todo");
@@ -161,12 +154,4 @@ public class verElementos extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void cambiarTema() {
-        String userDefaultMode = getResources().getString(R.string.modo);
-        if (userDefaultMode.equals("Oscuro")) {
-            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        } else {
-            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }
-    }
 }

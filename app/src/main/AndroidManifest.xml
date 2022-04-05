@@ -23,7 +23,6 @@
 
         <activity android:name=".agregarElementos"/>
         <activity android:name=".editarElemento"/>
-        <activity android:name=".verCategorias"/>
 
     </application>
 

@@ -12,16 +12,6 @@
         >
         <menu>
             <item
-                android:id="@+id/menu_categorias"
-                android:title="Categorias"
-                app:showAsAction="never"
-                />
-            <item
-                android:id="@+id/theme"
-                android:title="Cambiar Tema"
-                app:showAsAction="never"
-                />
-            <item
                 android:id="@+id/menu_eliminar"
                 android:title="Eliminar Todo"
                 app:showAsAction="never"
