@@ -6,7 +6,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "Actividad5.organizador"
+        applicationId "organizador.app"
         minSdk 22
         targetSdk 32
         versionCode 1

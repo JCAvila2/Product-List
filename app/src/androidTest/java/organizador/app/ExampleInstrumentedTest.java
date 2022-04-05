@@ -1,4 +1,4 @@
-package Actividad5.organizador;
+package organizador.app;
 
 import android.content.Context;
 
