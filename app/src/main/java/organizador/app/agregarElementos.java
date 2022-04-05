@@ -16,7 +16,7 @@ public class agregarElementos extends AppCompatActivity {
     // Declaracion de variables
     BaseDeDatos db;
     verElementos ver_Elementos;
-    EditText elemento;
+    EditText elemento, precio;
     Button guardar, cancelar;
 
 
@@ -30,6 +30,7 @@ public class agregarElementos extends AppCompatActivity {
         db = new BaseDeDatos(this);
         ver_Elementos = new verElementos();
         elemento = findViewById(R.id.elemento_entrada);
+        precio = findViewById(R.id.precio_entrada);
         guardar = findViewById(R.id.button_guardar);
         cancelar = findViewById(R.id.button_cancelar);
 
@@ -60,7 +61,8 @@ public class agregarElementos extends AppCompatActivity {
 
     // Agregar el elemento a la tabla
     public void AddDatos(String elemento) {
-        boolean insertarDatos = db.addDatos(elemento);
+        String precio_ = precio.getText().toString(); // falta concectarlo con la entrada del usuario
+        boolean insertarDatos = db.addElemento(elemento, precio_);
         if (insertarDatos) {
             toastMensaje("Los datos se guardaron correctamente");
         } else {

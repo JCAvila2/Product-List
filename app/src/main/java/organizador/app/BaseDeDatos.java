@@ -13,6 +13,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     private static final String NOMBRE_TABLA = "tabla_elementos";
     private static final String COL0 = "ID";
     private static final String COL1 = "elemento";
+    private static final String COL2 = "precio";
 
     public BaseDeDatos(Context context) {
         super(context, NOMBRE_TABLA, null, 1);
@@ -21,7 +22,9 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     @Override //Metodo para crear una tabla
     public void onCreate(SQLiteDatabase base_de_datos) {
         Log.i("BASE DE DATOS", "Se creo la tabla " + NOMBRE_TABLA);
-        String query = "CREATE TABLE " + NOMBRE_TABLA + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + COL1 + " TEXT)";
+        String query = "CREATE TABLE " + NOMBRE_TABLA + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COL1 + " TEXT, " +
+                COL2 + " TEXT);";
         base_de_datos.execSQL(query);
     }
 
@@ -32,9 +35,9 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         base_de_datos.execSQL(query);
     }
 
-    // metodo para agregar un elemento a una tabla
+    /* metodo para agregar un elemento a una tabla
     public boolean addDatos (String elemento) {
-        Log.i("DB", "Agregando " + elemento + " a " + NOMBRE_TABLA);
+        Log.i("DB", "Agregando " + elemento);
         SQLiteDatabase base_de_datos = this.getWritableDatabase();
         ContentValues contenido = new ContentValues();
         contenido.put(COL1, elemento);
@@ -45,7 +48,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         } else {
             return true;
         }
-    }
+    } */
 
     // metodo para obtener todos los elementos en una tabla
     public Cursor getDatos() {
@@ -87,5 +90,22 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         base_de_datos.execSQL(query);
     }
 
+
+    //TEST--------------
+    public boolean addElemento(String elemento, String precio) {
+        SQLiteDatabase base_de_datos = this.getWritableDatabase();
+        ContentValues contenido = new ContentValues();
+
+        contenido.put(COL1, elemento);
+        contenido.put(COL2, precio);
+
+        long resultado = base_de_datos.insert(NOMBRE_TABLA, null, contenido);
+        // Si los datos se pudieron guardar en la base de datos correctamente este metodo retorna true
+        if (resultado == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 }

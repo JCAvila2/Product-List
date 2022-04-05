@@ -27,10 +27,10 @@ public class verElementos extends AppCompatActivity {
     // Declaracion de Variables
     BaseDeDatos db;
     ListView gridLista;
-    TextView mostrarCantidad;
+    TextView mostrarCantidad, mostrarPrecio;
     Button botonAgregar;
     public static int numeroDeElementos;
-
+    public static double precioTotal = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +41,14 @@ public class verElementos extends AppCompatActivity {
         db = new BaseDeDatos(this);
         gridLista = findViewById(R.id.grid_lista);
         mostrarCantidad = findViewById(R.id.mostrar_cantidad);
+        mostrarPrecio = findViewById(R.id.mostrar_precio);
         botonAgregar = findViewById(R.id.Boton_agregar);
 
         //getSupportActionBar().setTitle(); Revisar nombre de usuario
         mostrarLista();
         numeroDeElementos = gridLista.getAdapter().getCount();
         mostrarCantidad.setText(numeroDeElementos + "");
-
+        mostrarPrecio.setText("$ " + precioTotal);
 
         // Listener del boton de agregar
         botonAgregar.setOnClickListener(new View.OnClickListener() {
@@ -62,10 +63,15 @@ public class verElementos extends AppCompatActivity {
         // Se obtienen los datos almacenados en la base de datos y se agregan a un ArrayList para luego mostrarlos en pantalla por medio del ListView
         Cursor datos = db.getDatos();
         ArrayList<String> listaDeDatos = new ArrayList<>();
+        double sum = 0;
         while (datos.moveToNext()) {
             // Se obtiene el elemento almacenado en la primera columna de la tabla y se agrega en en ArrayList
             listaDeDatos.add(datos.getString(1));
+            Log.i("PRUEBAAAAAAAA", datos.getString(2)+"");
+            sum += Double.parseDouble((datos.getString(2)+""));
         }
+        precioTotal = sum;
+
         // Se crea un adapter para actualizar el ListView
         ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaDeDatos);
         gridLista.setAdapter(adapter);

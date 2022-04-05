@@ -67,4 +67,18 @@
         app:layout_constraintTop_toBottomOf="@+id/divider"
         tools:ignore="TextContrastCheck" />
 
+    <TextView
+        android:id="@+id/mostrar_precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0"
+        android:textColor="@color/colorTexto"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Boton_agregar"
+        app:layout_constraintTop_toBottomOf="@+id/divider"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
