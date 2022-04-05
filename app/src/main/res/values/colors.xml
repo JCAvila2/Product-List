@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="temaPrincipal">#FF7144</color>
+    <color name="varianteTemaPrincipal">#2196F3</color>
+
+    <color name="colorSecundario">#2196F3</color>
+    <color name="varianteColorSecundario">#FF000000</color>
+
+    <color name="colorTexto">#FF000000</color>
+    <color name="botonAgregar">#FF5722</color>
+</resources>
