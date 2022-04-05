@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="organizador.app.verElementos"
+    tools:context="organizador.app.verCategorias"
     tools:ignore="ContentDescription,MissingConstraints,HardcodedText">
 
     <LinearLayout
@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <ListView
-            android:id="@+id/grid_lista"
+            android:id="@+id/grid_lista2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:footerDividersEnabled="true">
@@ -35,12 +35,12 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:background="@color/botonAgregar"
-        app:layout_constraintBottom_toTopOf="@+id/Boton_agregar"
+        app:layout_constraintBottom_toTopOf="@+id/Boton_agregar2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/mostrar_cantidad"
+        android:id="@+id/mostrar_cantidad2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -48,16 +48,16 @@
         android:textStyle="bold"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/Boton_agregar"
+        app:layout_constraintEnd_toStartOf="@+id/Boton_agregar2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Boton_agregar" />
+        app:layout_constraintTop_toTopOf="@+id/Boton_agregar2" />
 
     <Button
-        android:id="@+id/Boton_agregar"
+        android:id="@+id/Boton_agregar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/botonAgregar"
-        android:text="Agregar"
+        android:text="Volver"
         android:textColor="@color/colorTexto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

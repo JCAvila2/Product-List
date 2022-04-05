@@ -58,21 +58,21 @@ public class agregarElementos extends AppCompatActivity {
 
     }
 
+    // Agregar el elemento a la tabla
     public void AddDatos(String elemento) {
         boolean insertarDatos = db.addDatos(elemento);
         if (insertarDatos) {
             toastMensaje("Los datos se guardaron correctamente");
-            //ver_Elementos.numeroDeElementos += 1;
         } else {
             toastMensaje("Algo ocurrio, los datos no se guardaron");
         }
     }
 
-
+    // Metodo para mostrar un Toast
     private void toastMensaje(String mensaje) {
         Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
     }
 
 
 
-}
+} // termina la clase

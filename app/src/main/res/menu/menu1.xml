@@ -12,8 +12,8 @@
         >
         <menu>
             <item
-                android:id="@+id/menu_infoRegistro"
-                android:title="Mi cuenta"
+                android:id="@+id/menu_categorias"
+                android:title="Categorias"
                 app:showAsAction="never"
                 />
             <item

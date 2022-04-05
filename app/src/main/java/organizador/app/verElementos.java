@@ -1,7 +1,6 @@
 package organizador.app;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -58,6 +57,7 @@ public class verElementos extends AppCompatActivity {
         });
     }
 
+
     private void mostrarLista() {
         // Se obtienen los datos almacenados en la base de datos y se agregan a un ArrayList para luego mostrarlos en pantalla por medio del ListView
         Cursor datos = db.getDatos();
@@ -90,7 +90,8 @@ public class verElementos extends AppCompatActivity {
                 }
             }
         });
-    }
+
+    } // termina mostrar lista
 
     public void agregarElemento() {
         // Llevar a la actividad para agregar elemento
@@ -113,23 +114,12 @@ public class verElementos extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_salir: // Boton de salir
-                AlertDialog.Builder preguntaSalir = new AlertDialog.Builder(this);
-                preguntaSalir.setTitle("Salir");
-                preguntaSalir.setMessage("¿Está seguro que desea salir?").setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(Intent.ACTION_MAIN);
-                        intent.addCategory(Intent.CATEGORY_HOME);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                    }
-                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                preguntaSalir.setCancelable(false);
-                preguntaSalir.show();
+            case R.id.menu_categorias:
+                Intent ir_a_ver_categorias = new Intent(verElementos.this, verCategorias.class);
+                startActivity(ir_a_ver_categorias);
+                break;
+            case R.id.theme:
+                cambiarTema();
                 break;
             case R.id.menu_eliminar: // Boton para eliminar todos los elementos
                 AlertDialog.Builder preguntaEliminarTodo = new AlertDialog.Builder(this);
@@ -149,20 +139,23 @@ public class verElementos extends AppCompatActivity {
                 preguntaEliminarTodo.setCancelable(false);
                 preguntaEliminarTodo.show();
                 break;
-            case R.id.menu_infoRegistro:
-                Context context;
-                AlertDialog.Builder alertaInfoRegistro = new AlertDialog.Builder(this);
-                alertaInfoRegistro.setTitle("Informacion");
-                alertaInfoRegistro.setMessage("Los datos que ingresaste en el registro son: \nNombre: " + "null" + "\nEmail: " + "null"); // revisar
-                alertaInfoRegistro.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int i) {
+            case R.id.menu_salir: // Boton de salir
+                AlertDialog.Builder preguntaSalir = new AlertDialog.Builder(this);
+                preguntaSalir.setTitle("Salir");
+                preguntaSalir.setMessage("¿Está seguro que desea salir?").setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
                 });
-                alertaInfoRegistro.show();
-                break;
-            case R.id.theme:
-                cambiarTema();
+                preguntaSalir.setCancelable(false);
+                preguntaSalir.show();
                 break;
         }
         return super.onOptionsItemSelected(item);
