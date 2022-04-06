@@ -67,7 +67,7 @@ public class verElementos extends AppCompatActivity {
         while (datos.moveToNext()) {
             // Se obtiene el elemento almacenado en la primera columna de la tabla y se agrega en en ArrayList
             listaDeDatos.add(datos.getString(1));
-            Log.i("PRUEBAAAAAAAA", datos.getString(2)+"");
+            Log.i("verElementos", datos.getString(2)+"");
             sum += Double.parseDouble((datos.getString(2)+""));
         }
         precioTotal = sum;
@@ -129,6 +129,8 @@ public class verElementos extends AppCompatActivity {
                         mostrarLista();
                         numeroDeElementos = gridLista.getAdapter().getCount();
                         mostrarCantidad.setText(numeroDeElementos + "");
+                        precioTotal = 0;
+                        mostrarPrecio.setText("$ " + precioTotal);
                     }
                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int i) {
