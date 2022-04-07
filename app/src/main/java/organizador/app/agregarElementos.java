@@ -66,7 +66,6 @@ public class agregarElementos extends AppCompatActivity {
 
     // Agregar el elemento a la tabla
     public void AddDatos(String elemento, String precio_) {
-        //String precio_ = precio.getText().toString(); // falta concectarlo con la entrada del usuario
         boolean insertarDatos = db.addElemento(elemento, precio_);
         if (insertarDatos) {
             toastMensaje("Los datos se guardaron correctamente");
