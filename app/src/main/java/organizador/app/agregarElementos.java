@@ -38,10 +38,15 @@ public class agregarElementos extends AppCompatActivity {
         guardar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 String nuevoElemento = elemento.getText().toString();
-                if (elemento.length() != 0) {
-                    AddDatos(nuevoElemento);
+                String precio_ = precio.getText().toString();
+                if (elemento.length() != 0 && precio_.length() != 0) {
+                    AddDatos(nuevoElemento, precio_);
                     Intent volver = new Intent(agregarElementos.this, verElementos.class);
                     startActivity(volver);
+                } else if ( nuevoElemento.length() == 0 && precio_.length() == 0) {
+                    toastMensaje("Ingresa un elemento y un precio");
+                } else if (precio_.length() == 0) {
+                    toastMensaje("Ingresa un precio");
                 } else {
                     toastMensaje("Ingresa un elemento");
                 }
@@ -60,8 +65,8 @@ public class agregarElementos extends AppCompatActivity {
     }
 
     // Agregar el elemento a la tabla
-    public void AddDatos(String elemento) {
-        String precio_ = precio.getText().toString(); // falta concectarlo con la entrada del usuario
+    public void AddDatos(String elemento, String precio_) {
+        //String precio_ = precio.getText().toString(); // falta concectarlo con la entrada del usuario
         boolean insertarDatos = db.addElemento(elemento, precio_);
         if (insertarDatos) {
             toastMensaje("Los datos se guardaron correctamente");
