@@ -11,6 +11,7 @@
         android:id="@+id/elemento_entrada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:ems="10"
         android:gravity="center"
         android:hint="Ingrese el elemento"
@@ -18,35 +19,37 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.213" />
+        app:layout_constraintVertical_bias="0.19999999"
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/precio_entrada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:ems="10"
         android:gravity="center"
-        android:hint="Ingrese el precio"
+        android:hint="Ingrese el valor"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/elemento_entrada"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/button_guardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
+        android:backgroundTint="@color/botonAgregar"
         android:text="Guardar"
         android:textColor="@color/colorTexto"
-        android:backgroundTint="@color/botonAgregar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_cancelar"
         app:layout_constraintTop_toBottomOf="@+id/elemento_entrada"
         app:layout_constraintVertical_bias="0.659" />
 
@@ -54,16 +57,16 @@
         android:id="@+id/button_cancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:backgroundTint="@color/botonAgregar"
         android:text="Cancelar"
         android:textColor="@color/colorTexto"
-        android:backgroundTint="@color/botonAgregar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_guardar"
-        app:layout_constraintHorizontal_bias="0.312"
+        app:layout_constraintHorizontal_bias="0.278"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/elemento_entrada"
-        app:layout_constraintVertical_bias="0.657" />
+        app:layout_constraintVertical_bias="0.659"
+        tools:ignore="TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
